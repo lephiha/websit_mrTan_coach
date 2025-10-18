@@ -238,7 +238,28 @@ nav.scrolled {
     transform: translate(-50%, -50%);
     object-fit: cover;
     z-index: 0;
-    pointer-events: none; /* ✅ THÊM */
+    pointer-events: none; /* ✅ THÊM - không cho click vào video */
+}
+
+/* ✅ ẨN TẤT CẢ CONTROLS CỦA VIDEO */
+.hero-video::-webkit-media-controls {
+    display: none !important;
+}
+
+.hero-video::-webkit-media-controls-panel {
+    display: none !important;
+}
+
+.hero-video::-webkit-media-controls-play-button {
+    display: none !important;
+}
+
+.hero-video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+}
+
+.hero-video::--webkit-media-controls-overlay-play-button {
+    display: none !important;
 }
 
 
@@ -1111,16 +1132,24 @@ footer p {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        pointer-events: none !important; /* ✅ THÊM */
     }
-
+    
+    /* ✅ THÊM 2 ĐOẠN NÀY */
+    .hero-overlay {
+        pointer-events: none;
+    }
+    
+    .hero-content {
+        pointer-events: auto;
+    }
+    
     .transformation-card {
         grid-template-columns: 1fr;
     }
-
     .transformation-image {
         height: 400px;
     }
-
     .transformation-title {
         font-size: 24px;
     }

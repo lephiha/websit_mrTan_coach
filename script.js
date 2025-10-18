@@ -62,31 +62,54 @@ fadeInElements.forEach(function(element) {
 });
 
 // ==========================================
-// VIDEO AUTOPLAY FIX
+// VIDEO AUTOPLAY FIX - NO CONTROLS
 // ==========================================
 const heroVideo = document.querySelector('.hero-video');
 if (heroVideo) {
-    // Force play on mobile
+    // Remove all controls
+    heroVideo.removeAttribute('controls');
+    heroVideo.controls = false;
+    
+    // Force muted for autoplay
     heroVideo.muted = true;
     heroVideo.setAttribute('muted', '');
     heroVideo.setAttribute('playsinline', '');
+    heroVideo.setAttribute('webkit-playsinline', '');
     
-    // Try to play
+    // Prevent context menu
+    heroVideo.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+    });
+    
+    // Try to play immediately
     const playPromise = heroVideo.play();
     
     if (playPromise !== undefined) {
-        playPromise.catch(function(error) {
-            console.log('Video autoplay failed:', error);
-            // Retry after user interaction
-            document.addEventListener('touchstart', function() {
+        playPromise.then(function() {
+            console.log('✅ Video is playing');
+        }).catch(function(error) {
+            console.log('Video autoplay blocked:', error);
+            
+            // Force play on first touch
+            document.addEventListener('touchstart', function startVideo() {
                 heroVideo.play();
+                document.removeEventListener('touchstart', startVideo);
             }, { once: true });
         });
     }
     
+    // Loop video
     heroVideo.addEventListener('ended', function() {
         this.currentTime = 0;
         this.play();
+    });
+    
+    // Prevent pause
+    heroVideo.addEventListener('pause', function() {
+        if (this.currentTime < this.duration) {
+            this.play();
+        }
     });
 }
 
