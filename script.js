@@ -66,9 +66,23 @@ fadeInElements.forEach(function(element) {
 // ==========================================
 const heroVideo = document.querySelector('.hero-video');
 if (heroVideo) {
-    heroVideo.play().catch(function(error) {
-        console.log('Video autoplay failed:', error);
-    });
+    // Force play on mobile
+    heroVideo.muted = true;
+    heroVideo.setAttribute('muted', '');
+    heroVideo.setAttribute('playsinline', '');
+    
+    // Try to play
+    const playPromise = heroVideo.play();
+    
+    if (playPromise !== undefined) {
+        playPromise.catch(function(error) {
+            console.log('Video autoplay failed:', error);
+            // Retry after user interaction
+            document.addEventListener('touchstart', function() {
+                heroVideo.play();
+            }, { once: true });
+        });
+    }
     
     heroVideo.addEventListener('ended', function() {
         this.currentTime = 0;
