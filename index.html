@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Huấn luyện viên Fitness chuyên nghiệp - Giúp bạn đạt mục tiêu cơ thể mơ ước">
     <title>Huấn Luyện Viên FitX-06 - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -214,53 +215,73 @@
             <div class="contact-info fade-in">
                 <h3>Thông tin liên hệ</h3>
                 <div class="contact-methods">
-                    <!-- ⭐ CẬP NHẬT THÔNG TIN LIÊN HỆ Ở ĐÂY ⭐ -->
-                    <div class="contact-method" onclick="window.open('tel:+84123456789')">
-                        <div class="contact-icon">📞</div>
-                        <div class="contact-details">
-                            <h4>Điện thoại</h4>
-                            <p>+84 123 456 789</p>
-                        </div>
+                    <div class="contact-method" onclick="window.open('tel:0345920368')">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
                     </div>
-                    <div class="contact-method" onclick="window.open('mailto:coach@fitness.com')">
-                        <div class="contact-icon">✉️</div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <p>coach@fitness.com</p>
-                        </div>
+                    <div class="contact-details">
+                        <h4>Hotline</h4>
+                        <p>0345.920.368</p>
                     </div>
-                    <div class="contact-method" onclick="window.open('https://zalo.me/0123456789')">
-                        <div class="contact-icon">💬</div>
-                        <div class="contact-details">
-                            <h4>Zalo</h4>
-                            <p>Chat trực tiếp qua Zalo</p>
-                        </div>
+                </div>
+                <div class="contact-method" onclick="window.open('mailto:tannguyenfitx@gmail.com')">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
                     </div>
+                    <div class="contact-details">
+                        <h4>Email</h4>
+                        <p>tannguyenfitx@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-method" onclick="window.open('http://m.me/minhtanfitx', '_blank')">
+                    <div class="contact-icon">
+                        <i class="fab fa-facebook-messenger"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Facebook Messenger</h4>
+                        <p>Chat trực tiếp qua Facebook</p>
+                    </div>
+                </div>
+                <div class="contact-method" onclick="window.open('https://zalo.me/0345920368', '_blank')">
+                    <div class="contact-icon">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Zalo</h4>
+                        <p>Chat trực tiếp qua Zalo</p>
+                    </div>
+                </div>
                     <div class="contact-method">
-                        <div class="contact-icon">📍</div>
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
                         <div class="contact-details">
                             <h4>Địa chỉ</h4>
-                            <p>123 Fitness Street, Hà Nội</p>
+                            <a href="https://www.google.com/maps/place/K2+The+K+Park/@20.9587422,105.7644747,17z/data=!3m1!4b1!4m6!3m5!1s0x313453c6ac7dd3eb:0x26b544249802696a!8m2!3d20.9587372!4d105.7670496!16s%2Fg%2F11h_x8z55s?hl=vi&entry=ttu&g_ep=EgoyMDI1MTAxMi4wIKXMDSoASAFQAw%3D%3D" 
+                        target="_blank" 
+                        rel="noopener noreferrer">
+                        Tầng 25, Toà K2, Chung cư Kpark, KĐT Văn Phú, Hà Đông, Hà Nội
+                        </a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="contact-form-container fade-in">
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" placeholder="Họ và tên *" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Email *" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" placeholder="Số điện thoại *" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Mục tiêu của bạn là gì? (Giảm cân, tăng cơ, cải thiện sức khỏe...)" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">GỬI TIN NHẮN</button>
-                </form>
+                <form class="contact-form" id="contactForm" onsubmit="sendToMessenger(event)">
+                <div class="form-group">
+                    <input type="text" id="userName" placeholder="Họ và tên *" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="userEmail" placeholder="Email *" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="userPhone" placeholder="Số điện thoại *" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="userMessage" placeholder="Mục tiêu của bạn là gì? (Giảm cân, tăng cơ, cải thiện sức khỏe...)" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">GỬI TIN NHẮN</button>
+            </form>
             </div>
         </div>
     </section>
@@ -271,24 +292,32 @@
         <p class="fade-in">Theo dõi hành trình fitness và nhận tips hữu ích mỗi ngày</p>
         <div class="social-links fade-in">
             <!-- ⭐ CẬP NHẬT LINK MẠNG XÃ HỘI Ở ĐÂY ⭐ -->
-            <a href="https://facebook.com/yourpage" target="_blank" class="social-link" title="Facebook">
-                <span>📘</span>
+            <a href="https://www.facebook.com/minhtanfitx" target="_blank" class="social-link" title="Facebook">
+                <span>
+                    <i class="fab fa-facebook-f"></i>
+                </span>
             </a>
-            <a href="https://instagram.com/yourpage" target="_blank" class="social-link" title="Instagram">
-                <span>📷</span>
+            <a href="https://www.youtube.com/@minhtanfitx" target="_blank" class="social-link" title="YouTube">
+                <span>
+                    <i class="fab fa-youtube"></i>
+                </span>
+            </a>
+            <a href="https://zalo.me/0345.920.368" target="_blank" class="social-link" title="Zalo">
+                <span>
+                    <i class="fas fa-comment-dots"></i>
+                </span>
+            </a>
+            <a href="https://lephiha.github.io/website_fitX-06/" target="_blank" class="social-link" title="Instagram">
+                <span>
+                    <i class="fas fa-globe"></i>
+                </span>
             </a>
             <a href="https://tiktok.com/@yourpage" target="_blank" class="social-link" title="TikTok">
-                <span>🎵</span>
+                <span>
+                    <i class="fab fa-tiktok"></i>
+                </span>
             </a>
-            <a href="https://youtube.com/@yourpage" target="_blank" class="social-link" title="YouTube">
-                <span>📺</span>
-            </a>
-            <a href="https://zalo.me/0123456789" target="_blank" class="social-link" title="Zalo">
-                <span>💬</span>
-            </a>
-            <a href="https://t.me/yourpage" target="_blank" class="social-link" title="Telegram">
-                <span>✈️</span>
-            </a>
+           
         </div>
     </section>
 

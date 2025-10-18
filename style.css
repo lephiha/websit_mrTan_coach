@@ -677,18 +677,19 @@ nav.scrolled {
 /* Social Section */
 .social-section {
     padding: 80px 50px;
-    background: var(--dark);
+    background: #ffffff;
     text-align: center;
 }
 
 .social-section h2 {
     font-size: 42px;
     margin-bottom: 20px;
+    color: var(--dark);
 }
 
 .social-section p {
     font-size: 18px;
-    color: #888;
+    color: #666;
     margin-bottom: 40px;
 }
 
@@ -713,6 +714,14 @@ nav.scrolled {
     text-decoration: none;
     position: relative;
     overflow: hidden;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.social-link i {
+    font-size: 28px;
+    position: relative;
+    z-index: 1;
 }
 
 .social-link::before {
@@ -738,6 +747,7 @@ nav.scrolled {
 
 .social-link:hover {
     transform: translateY(-10px) scale(1.1);
+    box-shadow: 0 15px 30px rgba(255, 0, 102, 0.3);
 }
 
 /* Footer */

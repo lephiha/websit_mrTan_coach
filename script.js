@@ -79,39 +79,38 @@ if (heroVideo) {
 // ==========================================
 // CONTACT FORM SUBMISSION
 // ==========================================
-function sendToMessenger(event) {
-    event.preventDefault();
-    
-    // ⭐ THAY PAGE ID CỦA BẠN Ở ĐÂY ⭐
-    const FACEBOOK_PAGE_ID = 'YOUR_PAGE_ID';
-    
-    // Lấy thông tin từ form
-    const name = document.getElementById('userName').value;
-    const email = document.getElementById('userEmail').value;
-    const phone = document.getElementById('userPhone').value;
-    const message = document.getElementById('userMessage').value;
-    
-    // Tạo tin nhắn tự động
-    const autoMessage = `Xin chào! 
-Tên: ${name}
-Email: ${email}
-SĐT: ${phone}
-Mục tiêu: ${message}`;
-    
-    const encodedMessage = encodeURIComponent(autoMessage);
-    const messengerURL = `https://m.me/${FACEBOOK_PAGE_ID}?text=${encodedMessage}`;
-    
-    // Show success message
-    const successMessage = document.getElementById('successMessage');
-    successMessage.textContent = '✅ Đang chuyển đến Messenger...';
-    successMessage.classList.add('show');
-    
-    // Chuyển đến Messenger
-    setTimeout(function() {
-        window.open(messengerURL, '_blank');
-        successMessage.classList.remove('show');
-        document.getElementById('contactForm').reset();
-    }, 1000);
+    function sendToMessenger(event) {
+        event.preventDefault();
+        
+        const FACEBOOK_PAGE_USERNAME = 'minhtanfitx'; // ✅ Đúng
+        
+        // Lấy thông tin từ form
+        const name = document.getElementById('userName').value;
+        const email = document.getElementById('userEmail').value;
+        const phone = document.getElementById('userPhone').value;
+        const message = document.getElementById('userMessage').value;
+        
+        // Tạo tin nhắn tự động
+        const autoMessage = `Xin chào! 
+            Tên: ${name}
+            Email: ${email}
+            SĐT: ${phone}
+            Mục tiêu: ${message}`;
+        
+        const encodedMessage = encodeURIComponent(autoMessage);
+        const messengerURL = `http://m.me/${FACEBOOK_PAGE_USERNAME}?text=${encodedMessage}`;
+        
+        // Show success message
+        const successMessage = document.getElementById('successMessage');
+        successMessage.textContent = '✅ Đang chuyển đến Messenger...';
+        successMessage.classList.add('show');
+        
+        // Chuyển đến Messenger
+        setTimeout(function() {
+            window.open(messengerURL, '_blank');
+            successMessage.classList.remove('show');
+            document.getElementById('contactForm').reset();
+        }, 1000);
 }
 
 // ==========================================
