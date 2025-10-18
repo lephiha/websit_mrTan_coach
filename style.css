@@ -94,20 +94,22 @@ nav.scrolled {
 /* Nav Links */
 .nav-links {
     display: flex;
+    align-items: center;
     gap: 2.5rem;
+    margin-left: auto; 
     list-style: none;
-    margin: 0 auto;
 }
 
 .nav-links a {
-    color: #fff;
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--light);
     text-decoration: none;
-    font-size: 0.95rem;
     font-weight: 700;
+    font-size: 0.95rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
+    transition: all 0.3s;
     position: relative;
-    transition: all 0.3s ease;
 }
 
 .nav-links a::before {
@@ -118,9 +120,9 @@ nav.scrolled {
     transform: translateX(-50%);
     width: 0;
     height: 3px;
-    background: linear-gradient(90deg, transparent, var(--pink), transparent);
+    background: linear-gradient(90deg, transparent, #ff0040, transparent);
     transition: width 0.3s ease;
-    box-shadow: 0 0 10px var(--pink);
+    box-shadow: 0 0 10px #ff0040;
 }
 
 .nav-links a:hover::before,
@@ -130,8 +132,8 @@ nav.scrolled {
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--pink);
-    text-shadow: 0 0 15px rgba(255, 0, 102, 0.8);
+    color: #ff0040;
+    text-shadow: 0 0 15px rgba(255, 0, 64, 0.8);
     transform: translateY(-2px);
 }
 
