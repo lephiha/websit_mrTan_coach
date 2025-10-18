@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Huấn luyện viên Fitness chuyên nghiệp - Giúp bạn đạt mục tiêu cơ thể mơ ước">
+    <title>Huấn Luyện Viên FitX-06 - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-left">
+            <img src="/assets/logo.png" alt="Logo" class="logo-image">
+            <div class="logo-text">FITX-06 COACH</div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">TRANG CHỦ</a></li>
+            <li><a href="#about">GIỚI THIỆU</a></li>
+            <li><a href="#services">DỊCH VỤ</a></li>
+            <li><a href="#testimonials">ĐÁNH GIÁ</a></li>
+            <li><a href="#contact">LIÊN HỆ</a></li>
+        </ul>
+        <div class="header-cta">
+                <a href="tel:0345920368" class="btn-call">Gọi ngay</a>
+                <a href="http://m.me/minhtanfitx" class="btn-message">Nhắn tin</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <!-- ⭐⭐⭐ THAY ĐỔI VIDEO BACKGROUND Ở ĐÂY ⭐⭐⭐ -->
+        <!-- 
+            CÁCH 1: Đặt file video vào cùng folder và đổi tên thành "background-video.mp4"
+            CÁCH 2: Thay đổi đường dẫn src="background-video.mp4" thành đường dẫn video của bạn
+            CÁCH 3: Dùng link video online từ server của bạn (ví dụ: src="https://yourserver.com/video.mp4")
+            
+            LƯU Ý: Video nên có format .mp4 để tương thích tốt nhất
+        -->
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="background-video.mp4" type="video/mp4">
+            <!-- Fallback nếu video không load -->
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">THAY ĐỔI CƠ THỂ</h1>
+            <p class="hero-subtitle">Huấn luyện viên cá nhân | Kế hoạch dinh dưỡng | Coaching lối sống</p>
+            <div class="cta-buttons">
+                <button class="cta-button" onclick="scrollToSection('contact')">BẮT ĐẦU NGAY</button>
+                <button class="cta-button secondary" onclick="scrollToSection('services')">XEM DỊCH VỤ</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <h2 class="section-title fade-in">VỀ TÔI</h2>
+        <div class="about-content">
+            <!-- ⭐⭐⭐ THAY ĐỔI ẢNH HLV Ở ĐÂY ⭐⭐⭐ -->
+            <!-- 
+                CÁCH 1: Đặt file ảnh vào cùng folder và đổi tên thành "coach-image.jpg"
+                CÁCH 2: Thay đổi đường dẫn src="coach-image.jpg" thành đường dẫn ảnh của bạn
+                CÁCH 3: Dùng link ảnh online từ server của bạn
+                
+                LƯU Ý: Ảnh nên có tỷ lệ dọc hoặc vuông, kích thước tối thiểu 800x800px
+            -->
+            <div class="about-image fade-in">
+                <img src="coach-image.jpg" alt="Huấn luyện viên" class="coach-photo">
+            </div>
+            <div class="about-text fade-in">
+                <h3>Huấn luyện viên Fitness chuyên nghiệp</h3>
+                <p>Xin chào! Tôi là một huấn luyện viên fitness với hơn 5 năm kinh nghiệm trong việc giúp mọi người đạt được mục tiêu sức khỏe và thể chất của họ.</p>
+                <p>Triết lý của tôi là mỗi người đều có tiềm năng để thay đổi cơ thể và cải thiện sức khỏe. Tôi sẽ đồng hành cùng bạn từng bước trên hành trình này với chương trình tập luyện khoa học và kế hoạch dinh dưỡng phù hợp.</p>
+                <p>Hãy để tôi giúp bạn đạt được phiên bản tốt nhất của chính mình!</p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Học viên</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Năm kinh nghiệm</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Thành công</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <h2 class="section-title fade-in">DỊCH VỤ CỦA TÔI</h2>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">🏋️</div>
+                <h3>Huấn luyện cá nhân 1-1</h3>
+                <p>Chương trình tập luyện được thiết kế riêng cho bạn, phù hợp với mục tiêu và thể trạng hiện tại. Theo dõi tiến độ chi tiết và điều chỉnh linh hoạt.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🥗</div>
+                <h3>Tư vấn dinh dưỡng</h3>
+                <p>Kế hoạch dinh dưỡng khoa học, cân đối macro và micro nutrients. Hướng dẫn cách ăn uống lành mạnh để tối ưu kết quả tập luyện.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">📱</div>
+                <h3>Huấn luyện Online</h3>
+                <p>Tập luyện linh hoạt mọi lúc mọi nơi với video hướng dẫn chi tiết. Chat trực tiếp để giải đáp thắc mắc và theo dõi tiến độ.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">👥</div>
+                <h3>Lớp tập nhóm</h3>
+                <p>Không khí sôi động, tạo động lực tập luyện cùng nhóm. Phù hợp cho người mới bắt đầu đến nâng cao với nhiều mức độ khác nhau.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🎯</div>
+                <h3>Lập kế hoạch mục tiêu</h3>
+                <p>Tư vấn và xây dựng lộ trình rõ ràng để đạt mục tiêu. Theo dõi và đánh giá định kỳ, điều chỉnh kế hoạch khi cần thiết.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">💪</div>
+                <h3>Chuyển đổi cơ thể</h3>
+                <p>Chương trình 12 tuần toàn diện với mục tiêu giảm cân, tăng cơ hoặc cải thiện thể lực. Cam kết đồng hành và hỗ trợ 24/7.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section" id="testimonials">
+        <h2 class="section-title fade-in">HỌC VIÊN NÓI GÌ</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-in">
+                <p class="testimonial-text">
+                    "Sau 3 tháng tập với coach, tôi đã giảm được 8kg và cảm thấy tự tin hơn rất nhiều. Chương trình tập rất khoa học và phù hợp với lịch trình bận rộn của tôi."
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">👨</div>
+                    <div class="author-info">
+                        <h4>Minh Tuấn</h4>
+                        <p>Nhân viên văn phòng</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ⭐ VIDEO TESTIMONIAL 1 ⭐ -->
+            <div class="testimonial-video fade-in">
+                <video controls poster="images/video-thumb-1.jpg">
+                    <source src="videos/testimonial-1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay">
+                    <div class="play-button">▶</div>
+                </div>
+            </div>
+
+            <div class="testimonial-card fade-in">
+                <p class="testimonial-text">
+                    "Coach rất tận tâm và nhiệt tình. Không chỉ hướng dẫn tập mà còn tư vấn dinh dưỡng chi tiết. Tôi đã đạt được mục tiêu tăng cơ của mình!"
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">👩</div>
+                    <div class="author-info">
+                        <h4>Thu Hương</h4>
+                        <p>Kinh doanh</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ⭐ VIDEO TESTIMONIAL 2 ⭐ -->
+            <div class="testimonial-video fade-in">
+                <video controls poster="images/video-thumb-2.jpg">
+                    <source src="videos/testimonial-2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay">
+                    <div class="play-button">▶</div>
+                </div>
+            </div>
+
+            <div class="testimonial-card fade-in">
+                <p class="testimonial-text">
+                    "Lần đầu tôi tập gym và cảm thấy rất lo lắng, nhưng coach đã giúp tôi vượt qua nỗi sợ đó. Giờ tập gym đã trở thành thói quen hàng ngày của tôi."
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">👨</div>
+                    <div class="author-info">
+                        <h4>Hoàng Nam</h4>
+                        <p>Sinh viên</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ⭐ VIDEO TESTIMONIAL 3 ⭐ -->
+            <div class="testimonial-video fade-in">
+                <video controls poster="images/video-thumb-3.jpg">
+                    <source src="videos/testimonial-3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay">
+                    <div class="play-button">▶</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <h2 class="section-title fade-in">LIÊN HỆ VỚI TÔI</h2>
+        <div class="contact-container">
+            <div class="contact-info fade-in">
+                <h3>Thông tin liên hệ</h3>
+                <div class="contact-methods">
+                    <!-- ⭐ CẬP NHẬT THÔNG TIN LIÊN HỆ Ở ĐÂY ⭐ -->
+                    <div class="contact-method" onclick="window.open('tel:+84123456789')">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h4>Điện thoại</h4>
+                            <p>+84 123 456 789</p>
+                        </div>
+                    </div>
+                    <div class="contact-method" onclick="window.open('mailto:coach@fitness.com')">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>coach@fitness.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-method" onclick="window.open('https://zalo.me/0123456789')">
+                        <div class="contact-icon">💬</div>
+                        <div class="contact-details">
+                            <h4>Zalo</h4>
+                            <p>Chat trực tiếp qua Zalo</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Địa chỉ</h4>
+                            <p>123 Fitness Street, Hà Nội</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form-container fade-in">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Họ và tên *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Số điện thoại *" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Mục tiêu của bạn là gì? (Giảm cân, tăng cơ, cải thiện sức khỏe...)" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">GỬI TIN NHẮN</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-section">
+        <h2 class="fade-in">KẾT NỐI VỚI TÔI</h2>
+        <p class="fade-in">Theo dõi hành trình fitness và nhận tips hữu ích mỗi ngày</p>
+        <div class="social-links fade-in">
+            <!-- ⭐ CẬP NHẬT LINK MẠNG XÃ HỘI Ở ĐÂY ⭐ -->
+            <a href="https://facebook.com/yourpage" target="_blank" class="social-link" title="Facebook">
+                <span>📘</span>
+            </a>
+            <a href="https://instagram.com/yourpage" target="_blank" class="social-link" title="Instagram">
+                <span>📷</span>
+            </a>
+            <a href="https://tiktok.com/@yourpage" target="_blank" class="social-link" title="TikTok">
+                <span>🎵</span>
+            </a>
+            <a href="https://youtube.com/@yourpage" target="_blank" class="social-link" title="YouTube">
+                <span>📺</span>
+            </a>
+            <a href="https://zalo.me/0123456789" target="_blank" class="social-link" title="Zalo">
+                <span>💬</span>
+            </a>
+            <a href="https://t.me/yourpage" target="_blank" class="social-link" title="Telegram">
+                <span>✈️</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 FitX-06 Coach Portfolio by LPH. All rights reserved.</p>
+        <p style="margin-top: 10px; color: #555;">Made with 💪 and ❤️</p>
+    </footer>
+
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+        ✅ Tin nhắn đã được gửi thành công!
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
