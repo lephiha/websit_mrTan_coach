@@ -468,6 +468,69 @@ nav.scrolled {
     color: #ccc;
 }
 
+/* Training Programs */
+.training-programs {
+    max-width: 1200px;
+    margin: 80px auto 0;
+    padding-top: 60px;
+    border-top: 2px solid var(--light-gray);
+}
+
+.programs-title {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--pink);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.program-item {
+    background: var(--light-gray);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.program-item:hover {
+    transform: translateY(-10px);
+    border-color: var(--pink);
+    box-shadow: 0 15px 30px rgba(255, 0, 102, 0.3);
+}
+
+.program-icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.program-item h4 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--pink);
+    font-weight: 700;
+}
+
+.program-item p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+@media (max-width: 768px) {
+    .programs-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
 /* Services Section */
 .services {
     background: var(--gray);
