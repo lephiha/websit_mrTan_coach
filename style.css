@@ -1,4 +1,5 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 /* Reset & Variables */
 * {
     margin: 0;
@@ -51,18 +52,18 @@ nav.scrolled {
 }
 
 .logo-text {
-    font-family: 'Bebas Neue', 'Impact', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 900;
-    letter-spacing: 4px;
+    font-family: 'Russo One', sans-serif;
+    font-size: 2.0rem;
+    font-weight: 700;
+    letter-spacing: 2px;
     background: linear-gradient(45deg, #ff0040, #ff6b6b, #ff0040);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
     animation: gradientShift 3s ease infinite;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: transform 0.3s;
 }
 
 .logo-text:hover {
