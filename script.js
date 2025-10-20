@@ -439,56 +439,29 @@ videoOverlays.forEach(function(overlay) {
     overlay.style.cursor = 'pointer';
 });
 // ==========================================
-// PROGRAM VIDEOS AUTOPLAY (MOBILE + DESKTOP)
+// FORCE VIDEO AUTOPLAY ON MOBILE
 // ==========================================
-function initProgramVideos() {
+document.addEventListener('DOMContentLoaded', function() {
     const programVideos = document.querySelectorAll('.program-video');
     
-    // Immediate play attempt
     programVideos.forEach(function(video) {
-        video.muted = true;
-        video.playsInline = true;
-        
-        // Try play immediately
-        const playPromise = video.play();
-        
-        if (playPromise !== undefined) {
-            playPromise.catch(function() {
-                // If autoplay blocked, play on scroll/touch
-                const observer = new IntersectionObserver(function(entries) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            video.play();
-                        } else {
-                            video.pause();
-                        }
-                    });
-                }, { threshold: 0.5 });
-                
-                observer.observe(video);
-            });
-        }
-    });
-    
-    // Retry on first touch (for iOS)
-    let playOnTouch = function() {
-        programVideos.forEach(function(video) {
-            video.play();
+        // Force play on load
+        video.play().catch(function(error) {
+            console.log('Autoplay prevented:', error);
+            
+            // Retry on user interaction
+            document.addEventListener('touchstart', function() {
+                video.play();
+            }, { once: true });
         });
-        document.removeEventListener('touchstart', playOnTouch);
-        document.removeEventListener('click', playOnTouch);
-    };
-    
-    document.addEventListener('touchstart', playOnTouch);
-    document.addEventListener('click', playOnTouch);
-}
-
-// Run when DOM ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initProgramVideos);
-} else {
-    initProgramVideos();
-}
+        
+        // Ensure loop
+        video.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+        });
+    });
+});
 
 // ==========================================
 // END OF SCRIPT
