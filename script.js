@@ -438,6 +438,57 @@ videoOverlays.forEach(function(overlay) {
     overlay.style.pointerEvents = 'auto';
     overlay.style.cursor = 'pointer';
 });
+// ==========================================
+// PROGRAM VIDEOS AUTOPLAY (MOBILE + DESKTOP)
+// ==========================================
+function initProgramVideos() {
+    const programVideos = document.querySelectorAll('.program-video');
+    
+    // Immediate play attempt
+    programVideos.forEach(function(video) {
+        video.muted = true;
+        video.playsInline = true;
+        
+        // Try play immediately
+        const playPromise = video.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.catch(function() {
+                // If autoplay blocked, play on scroll/touch
+                const observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            video.play();
+                        } else {
+                            video.pause();
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(video);
+            });
+        }
+    });
+    
+    // Retry on first touch (for iOS)
+    let playOnTouch = function() {
+        programVideos.forEach(function(video) {
+            video.play();
+        });
+        document.removeEventListener('touchstart', playOnTouch);
+        document.removeEventListener('click', playOnTouch);
+    };
+    
+    document.addEventListener('touchstart', playOnTouch);
+    document.addEventListener('click', playOnTouch);
+}
+
+// Run when DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initProgramVideos);
+} else {
+    initProgramVideos();
+}
 
 // ==========================================
 // END OF SCRIPT
