@@ -114,42 +114,59 @@ if (heroVideo) {
 }
 
 // ==========================================
-// CONTACT FORM SUBMISSION
+// CONTACT FORM - SEND TO GMAIL
 // ==========================================
-    function sendToMessenger(event) {
-        event.preventDefault();
+function sendToEmail(event) {
+    event.preventDefault();
+    
+    // Lấy thông tin từ form
+    const name = document.getElementById('userName').value;
+    const phone = document.getElementById('userPhone').value;
+    const message = document.getElementById('userMessage').value;
+    
+    // Tạo nội dung email
+    const subject = encodeURIComponent('Đăng ký tập luyện - ' + name);
+    const body = encodeURIComponent(
+        'THÔNG TIN ĐĂNG KÝ\n\n' +
+        '👤 Họ và tên: ' + name + '\n' +
+        '📞 Số điện thoại: ' + phone + '\n' +
+        '🎯 Mục tiêu: ' + message
+    );
+    
+    // ✅ Gmail URL scheme cho mobile
+    const gmailMobileUrl = `googlegmail://co?to=minhtanfitx@gmail.com&subject=${subject}&body=${body}`;
+    
+    // ✅ Gmail web URL cho desktop (fallback)
+    const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=minhtanfitx@gmail.com&su=${subject}&body=${body}`;
+    
+    // Show success message
+    const successMessage = document.getElementById('successMessage');
+    successMessage.textContent = '✅ Đang mở Gmail...';
+    successMessage.classList.add('show');
+    
+    setTimeout(() => {
+        // ✅ Detect mobile và mở URL phù hợp
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         
-        const FACEBOOK_PAGE_USERNAME = 'minhtanfitx'; // ✅ Đúng
+        if (isMobile) {
+            // Thử mở Gmail app
+            window.location.href = gmailMobileUrl;
+            
+            // Fallback: Nếu không có Gmail app, mở Gmail web sau 2s
+            setTimeout(() => {
+                window.open(gmailWebUrl, '_blank');
+            }, 2000);
+        } else {
+            // Desktop: Mở Gmail web
+            window.open(gmailWebUrl, '_blank');
+        }
         
-        // Lấy thông tin từ form
-        const name = document.getElementById('userName').value;
-        const email = document.getElementById('userEmail').value;
-        const phone = document.getElementById('userPhone').value;
-        const message = document.getElementById('userMessage').value;
-        
-        // Tạo tin nhắn tự động
-        const autoMessage = `Xin chào! 
-            Tên: ${name}
-            Email: ${email}
-            SĐT: ${phone}
-            Mục tiêu: ${message}`;
-        
-        const encodedMessage = encodeURIComponent(autoMessage);
-        const messengerURL = `http://m.me/${FACEBOOK_PAGE_USERNAME}?text=${encodedMessage}`;
-        
-        // Show success message
-        const successMessage = document.getElementById('successMessage');
-        successMessage.textContent = '✅ Đang chuyển đến Messenger...';
-        successMessage.classList.add('show');
-        
-        // Chuyển đến Messenger
-        setTimeout(function() {
-            window.open(messengerURL, '_blank');
+        setTimeout(() => {
             successMessage.classList.remove('show');
             document.getElementById('contactForm').reset();
-        }, 1000);
+        }, 2000);
+    }, 1000);
 }
-
 // ==========================================
 // STATS COUNTER ANIMATION
 // ==========================================
